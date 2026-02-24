@@ -12,27 +12,34 @@ const BurgerSection = ({ title, description, image, ingredients, id, icon: Icon 
   return (
     <div id={id} className="burger-section" ref={ref}>
       <div className={`burger-content ${inView ? 'visible' : ''}`}>
-        <div className="burger-image-container">
-          <img src={image} alt={title} className="burger-image" />
-        </div>
-        <div className="burger-details">
+
+        {/* Title and Description */}
+        <div className="burger-header">
           <h2 className="burger-title">
             <Icon size={40} style={{ display: 'inline', marginRight: '1rem', verticalAlign: 'bottom', color: 'var(--color-secondary)' }} />
             {title}
           </h2>
           <p className="burger-description">{description}</p>
-          <div className="ingredients">
-            <h3 style={{ color: 'var(--color-secondary)', marginBottom: '0.5rem' }}>Ingredients</h3>
-            <ul className="ingredients-list">
-              {ingredients.map((item, idx) => (
-                <li key={idx} className="ingredient-item">
-                  <span className="ingredient-bullet"></span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
+
+        {/* Image Layout */}
+        <div className="burger-image-container">
+          <img src={image} alt={title} className="burger-image" />
+        </div>
+
+        {/* Ingredients */}
+        <div className="burger-ingredients">
+          <h3 style={{ color: 'var(--color-secondary)', marginBottom: '0.5rem' }}>Ingredients</h3>
+          <ul className="ingredients-list">
+            {ingredients.map((item, idx) => (
+              <li key={idx} className="ingredient-item">
+                <span className="ingredient-bullet"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
       </div>
     </div>
   );
